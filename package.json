@@ -1,0 +1,19 @@
+{
+  "name": "lezione03ottobre",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/festigf/lezione03ottobre.git"
+  },
+  "author": "gf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/festigf/lezione03ottobre/issues"
+  },
+  "homepage": "https://github.com/festigf/lezione03ottobre#readme"
+}
