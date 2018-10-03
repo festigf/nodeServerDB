@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Node",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": "npm.cmd",
+            "runtimeArgs": [
+                "run-script", "debug"
+            ],
+            "port": 9229
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}"
+          }
+        ],
+        "compounds": [
+          {
+            "name": "Full-stack",
+            "configurations": ["Node", "Chrome"]
+          }
+        ]
+ }
+
+
