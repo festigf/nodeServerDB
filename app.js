@@ -1,12 +1,8 @@
 var express = require("express");
 var path = require("path");
-var fs = require("fs");
+var apiRouter = require("./routes/api_router");
 var app = express();
-app.use(function(req, res, next) {
-    console.log("Request IP: " + req.url);
-    console.log("Request date: " + new Date());
-    next();
-});
-app.listen(3000, function() {
-    console.log("App started on port 3000");
-});
+var staticPath = path.resolve(__dirname, "static");
+app.use(express.static(staticPath));
+app.use("/api", apiRouter);
+app.listen(3000);
