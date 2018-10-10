@@ -5,4 +5,4 @@ var app = express();
 var staticPath = path.resolve(__dirname, "static");
 app.use(express.static(staticPath));
 app.use("/api", apiRouter);
-app.listen(3000);
+app.listen(3000,'0.0.0.0');
