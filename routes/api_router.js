@@ -126,7 +126,8 @@ api.put('/editUser', function(req, res){
 						res.sendStatus(500); //Internal Server Error
 					}						
 					else   
-    				console.log(util.inspect(req.body, false, null, true ))
+					console.log(util.inspect(rows, false, null, true ));
+    				console.log(util.inspect(fields, false, null, true ));
 					res.status(200).send({ 
 						status:  200, 
 						Message: "Ins OK",
