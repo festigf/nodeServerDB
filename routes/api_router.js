@@ -126,22 +126,22 @@ api.put('/editUser', function(req, res){
 						res.sendStatus(500); //Internal Server Error
 					}						
 					else   
-					//res.status(200).send({ status:200, Message: "Ins OK" });
+    				console.log(util.inspect(req.body, false, null, true ))
 					res.status(200).send({ 
 						status:  200, 
 						Message: "Ins OK",
-						data: 	 req.query  
+						data: 	 req.body  
 					});
 					//	res.sendStatus(200)
 				});
 			}
 			else   
 			{
-				//res.sendStatus(200)
+				console.log(util.inspect(req.body, false, null, true ))
 				res.status(200).send({ 
 						status:  200, 
 						Message: "Mod OK",
-						data:    req.query   
+						data:    req.body   
 					});
 			}
 		  }); 
