@@ -154,5 +154,29 @@ api.put('/editUser', function(req, res){
 });
 
 
+app.put("/spEditUser",function(req,res){
+	connection= mysql.createConnection(sConnection)	;
+	connection.connect(function(err){
+		if (!err){
+			var sQuery="call dbUsers.spEditUser(?,?,?,@nRows,@newId); select @nRows as nRows, @newId as newId"
+			var data=[];
+			// console.log("spEditUser:"+util.inspect(req, {showHidden: false, depth: null}));
+            data.push(req.body.Cognome);
+            data.push(req.body.Nome);
+            data.push(req.body.id);
+			
+			//console.log(data);
+	        
+			connection.query(sQuery,data,function(err,rows,fileds){
+		      if (err) 
+				res.sendStatus(500); //Internal Server Error
+			  else
+				//res.setHeader('Access-Control-Allow-Origin','*');
+				res.json(rows); //resituisce tutti i records in formato json
+				console.log(rows);
+			})
+		}
+	})
+})
 
 module.exports = api;
