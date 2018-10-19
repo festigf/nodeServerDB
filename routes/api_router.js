@@ -154,7 +154,7 @@ api.put('/editUser', function(req, res){
 });
 
 
-app.put("/spEditUser",function(req,res){
+api.put("/spEditUser",function(req,res){
 	connection= mysql.createConnection(sConnection)	;
 	connection.connect(function(err){
 		if (!err){
