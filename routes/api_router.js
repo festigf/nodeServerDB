@@ -158,6 +158,9 @@ api.put("/spEditUser",function(req,res){
 	connection= mysql.createConnection(sConnection)	;
 	connection.connect(function(err){
 		if (!err){
+			// insert/update by id                --> in: cognome,nome,id  
+			//      se il record esiste update       out: nRows modificate, newid = id 
+			//      se il record è new insert        out: nRows inserite, newid = id nuovo 
 			var sQuery="call dbUsers.spEditUser(?,?,?,@nRows,@newId); select @nRows as nRows, @newId as newId"
 			var data=[];
 			// console.log("spEditUser:"+util.inspect(req, {showHidden: false, depth: null}));
@@ -174,6 +177,7 @@ api.put("/spEditUser",function(req,res){
 				//res.setHeader('Access-Control-Allow-Origin','*');
 				res.json(rows); //resituisce tutti i records in formato json
 				console.log(rows);
+				//RowDataPacket {nRows: 1, newId: 1}
 			})
 		}
 	})
