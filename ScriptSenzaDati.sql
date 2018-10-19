@@ -1,17 +1,13 @@
-CREATE DATABASE  IF NOT EXISTS `dbusers` ;
-USE `dbusers`;
+create database dbUsers;
+use dbusers;
+create table tblUsers(
+  id int primary key not null auto_increment,
+  Cognome varchar(100),
+  Nome varchar(100)
 
-DROP TABLE IF EXISTS `tblusers`;
-
-CREATE TABLE `tblusers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Cognome` varchar(100) DEFAULT NULL,
-  `Nome` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+);
 
 
-DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spEditUser`(  
  Cognome varchar(100),
  Nome varchar(100),
@@ -30,9 +26,16 @@ Begin
       set newId= Last_Insert_ID() ;
       set nRows=ROW_COUNT();
     end if;
-End ;;
-DELIMITER ;
+End;
 
-LOCK TABLES `tblusers` WRITE;
-INSERT INTO `tblusers` VALUES (1,'Rosssi','Paolo'),(2,'nuovo','utente');
-UNLOCK TABLES;
+
+
+/*
+set @Cognome = 'tiwwwzssio';
+set @Nome = 'eeeecaiosss';
+set @Id = 1;
+set @nRows = -1;
+set @newId = 0;
+call dbusers.spEditUser(@Cognome, @Nome, @Id, @nRows, @newId);
+select @Cognome, @Nome, @Id, @nRows, @newId;
+*/
